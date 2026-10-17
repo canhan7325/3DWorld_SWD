@@ -1,4 +1,8 @@
-# Antigravity 4-Agent Starter
+# 3DWorld_SWD
+
+Landing page trải nghiệm 3D Printing & Figure Showroom.
+
+## Antigravity 4-Agent Starter
 
 A tool-light software delivery pipeline:
 
@@ -36,3 +40,4 @@ Create a feature branch before starting:
 git switch -c feature/auth-login
 ```
 Never give an agent permission to merge directly to `main`.
+

@@ -1,0 +1,553 @@
+/**
+ * 3DWorld - Landing Page Sections & Components
+ * Featured Products, Categories Grid, 3D Printing Service, Trust Pillars, Final CTA
+ */
+
+/* ==========================================================
+   Section 2: Featured Products
+   ========================================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-decoration: none;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border);
+}
+
+.product-card-visual {
+  position: relative;
+  background-color: #F8F8FA;
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.product-card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-card-visual img {
+  transform: scale(1.05);
+}
+
+.product-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 2;
+}
+
+.product-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-header-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+}
+
+.product-desc {
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.product-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border-soft);
+  font-size: 12.5px;
+  color: var(--color-text-tertiary);
+}
+
+.product-material {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.material-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.star-icon {
+  color: #F5A623;
+  font-size: 11px;
+}
+
+/* ==========================================================
+   Section 3: Explore Categories (Perfect 12-Column Editorial Grid)
+   ========================================================== */
+.categories-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+.category-tile {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 260px;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.category-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-border);
+}
+
+/* Row 1: 2 wide cards (6 + 6 = 12) */
+.category-tile:nth-child(1),
+.category-tile:nth-child(2) {
+  grid-column: span 6;
+}
+
+/* Row 2: 3 medium cards (4 + 4 + 4 = 12) */
+.category-tile:nth-child(3),
+.category-tile:nth-child(4),
+.category-tile:nth-child(5) {
+  grid-column: span 4;
+}
+
+/* Row 3: 2 wide cards (6 + 6 = 12) */
+.category-tile:nth-child(6),
+.category-tile:nth-child(7) {
+  grid-column: span 6;
+}
+
+@media (max-width: 1024px) {
+  .category-tile:nth-child(n) {
+    grid-column: span 6;
+  }
+  .category-tile:nth-child(7) {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 640px) {
+  .category-tile:nth-child(n) {
+    grid-column: span 12;
+  }
+}
+
+.category-tile-header {
+  position: relative;
+  z-index: 2;
+  max-width: 65%;
+}
+
+.category-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.category-name {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.category-count {
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+}
+
+.category-tile-visual {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.category-tile-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.category-tile:hover .category-tile-visual {
+  transform: scale(1.08) rotate(1deg);
+  opacity: 1;
+}
+
+.category-link-arrow {
+  position: relative;
+  z-index: 2;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 24px;
+  transition: gap var(--transition-smooth);
+}
+
+.category-tile:hover .category-link-arrow {
+  gap: 7px;
+  color: var(--color-blue-hover);
+}
+
+/* ==========================================================
+   Section 4: 3D Printing Service
+   ========================================================== */
+.printing-service-panel {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 64px 56px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.printing-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 48px 0;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .printing-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .printing-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.print-step-item {
+  background: var(--color-bg-base);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: background-color var(--transition-smooth), border-color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.print-step-item:hover, .print-step-item.is-active {
+  background: #FFFFFF;
+  border-color: var(--color-border);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.step-number {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-blue);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.printing-cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 36px;
+  border-top: 1px solid var(--color-border-soft);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.printing-specs-summary {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-tertiary);
+}
+
+.spec-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* ==========================================================
+   Section 5: Why 3DWorld & Trust
+   ========================================================== */
+.trust-pillars-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+@media (max-width: 1024px) {
+  .trust-pillars-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .trust-pillars-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trust-pillar-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-subtle);
+}
+
+.pillar-icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--color-blue-subtle);
+  color: var(--color-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.pillar-title {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+
+.pillar-desc {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Minimal Editorial Reviews */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.review-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-subtle);
+}
+
+.review-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 16px;
+  color: #F5A623;
+  font-size: 12px;
+}
+
+.review-quote {
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--color-text-primary);
+  font-style: normal;
+  margin-bottom: 24px;
+}
+
+.review-author {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: 14px;
+}
+
+.author-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.author-role {
+  font-size: 12.5px;
+  color: var(--color-text-tertiary);
+}
+
+/* ==========================================================
+   Section 6: Final CTA
+   ========================================================== */
+.final-cta-section {
+  padding-bottom: 120px;
+}
+
+.final-cta-card {
+  background: var(--color-surface-white);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-lg);
+  padding: 72px 48px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+}
+
+.final-cta-headline {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin-bottom: 14px;
+}
+
+.final-cta-desc {
+  font-size: 17px;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  margin: 0 auto 32px;
+  line-height: 1.55;
+}
+
+.final-cta-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}

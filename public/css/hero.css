@@ -1,0 +1,300 @@
+/**
+ * 3DWorld - Hero Canvas Image Sequence & Scroll Architecture
+ */
+
+.hero-scroll-section {
+  position: relative;
+  height: 320vh;
+  width: 100%;
+}
+
+.hero-scroll-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--color-bg-base));
+  pointer-events: none;
+  z-index: 20;
+}
+
+.hero-pin-container {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: clip;
+  background: radial-gradient(circle at 50% 45%, #c4d2dc 0%, #adbcc7 50%, #96a7b4 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.4s ease;
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Submerged oversized background wordmark */
+.hero-bg-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: min(18vw, 240px);
+  font-weight: 850;
+  letter-spacing: -0.05em;
+  color: #1a2228;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  line-height: 1;
+}
+
+/* Master Overlay System */
+.hero-overlay-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-content-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Story Beat Panels */
+.hero-beat {
+  position: absolute;
+  max-width: 440px;
+  opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+  pointer-events: none;
+}
+
+.hero-beat.interactive {
+  pointer-events: auto;
+}
+
+/* Beat 1: Intro (Centered, Top-third with clean editorial floating text) */
+.hero-beat-intro {
+  top: 54px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  max-width: 640px;
+  text-align: center;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Performance optimization (Requirement 17): high-opacity background replaces heavy backdrop-filter */
+.intro-glass-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 28px 36px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 8px;
+}
+
+.hero-headline-large {
+  font-size: clamp(34px, 4.2vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.hero-lead-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  margin: 0 auto 18px;
+}
+
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Bottom Persistent Scroll Indicator (Requirement 17: high-opacity background) */
+.hero-scroll-prompt {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  pointer-events: auto;
+  z-index: 12;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator-arrow {
+  display: inline-block;
+  animation: bounceHint 2s infinite ease-in-out;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* Beat 2 & 3: Right Aligned */
+.hero-beat-right {
+  top: 50%;
+  right: 64px;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* Beat 4 & 5: Left Aligned */
+.hero-beat-left {
+  top: 50%;
+  left: 64px;
+  transform: translateY(-50%);
+  text-align: left;
+}
+
+/* Clean Apple floating card (Requirement 17: high-opacity background replaces heavy backdrop-filter) */
+.beat-panel-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px;
+  pointer-events: auto;
+}
+
+.beat-badge {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-blue);
+  margin-bottom: 10px;
+}
+
+.beat-title {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--color-text-primary);
+  margin-bottom: 12px;
+}
+
+.beat-body {
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.beat-tagline {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  border-left: 2px solid var(--color-blue);
+  padding-left: 10px;
+}
+
+/* Component Pills for Exploded view */
+.parts-tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.part-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Loading Badge (Requirement 17: high-opacity background) */
+.hero-loader-pill {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(29, 29, 31, 0.92);
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero-loader-pill.loaded {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+  pointer-events: none;
+}
+
+.spinner-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  animation: pulseDot 1s infinite alternate ease-in-out;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 1; }
+}

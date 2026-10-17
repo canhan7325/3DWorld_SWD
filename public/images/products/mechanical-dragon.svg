@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#E0A96D"/>
+        <stop offset="40%" stop-color="#C68B59"/>
+        <stop offset="70%" stop-color="#8E5431"/>
+        <stop offset="100%" stop-color="#5A321B"/>
+      </linearGradient>
+      <linearGradient id="bronzeHighlight" x1="20%" y1="0%" x2="80%" y2="100%">
+        <stop offset="0%" stop-color="#FFE0B2"/>
+        <stop offset="50%" stop-color="#D79A63"/>
+        <stop offset="100%" stop-color="#7B4222"/>
+      </linearGradient>
+      <radialGradient id="shadowG" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(29, 29, 31, 0.16)"/>
+        <stop offset="70%" stop-color="rgba(29, 29, 31, 0.04)"/>
+        <stop offset="100%" stop-color="rgba(29, 29, 31, 0)"/>
+      </radialGradient>
+    </defs>
+    <!-- Floor shadow -->
+    <ellipse cx="300" cy="380" rx="210" ry="24" fill="url(#shadowG)"/>
+    <!-- Dragon segments -->
+    <g transform="translate(60, 40)">
+      <!-- Tail segments -->
+      <path d="M 60 260 Q 90 280 130 250 Q 150 230 180 250 L 175 275 Q 140 260 110 285 Z" fill="url(#bronzeGrad)"/>
+      <circle cx="178" cy="260" r="12" fill="url(#bronzeHighlight)"/>
+      <!-- Body Spine Segment 1 -->
+      <path d="M 170 250 Q 210 210 260 230 L 255 265 Q 210 240 175 275 Z" fill="url(#bronzeGrad)"/>
+      <!-- Scales & Spine Dorsal Fin -->
+      <polygon points="215,220 230,175 245,225" fill="url(#bronzeHighlight)"/>
+      <polygon points="265,228 285,160 305,232" fill="url(#bronzeHighlight)"/>
+      <polygon points="325,235 345,185 365,242" fill="url(#bronzeHighlight)"/>
+      <!-- Body Segment 2 -->
+      <path d="M 255 230 Q 320 235 370 245 L 365 285 Q 310 270 255 265 Z" fill="url(#bronzeGrad)"/>
+      <!-- Neck & Chest -->
+      <path d="M 365 245 Q 400 200 410 140 L 445 165 Q 425 230 365 285 Z" fill="url(#bronzeHighlight)"/>
+      <!-- Head -->
+      <path d="M 405 145 L 470 120 L 495 145 L 465 170 L 425 165 Z" fill="url(#bronzeGrad)"/>
+      <polygon points="415,140 435,90 445,135" fill="url(#bronzeHighlight)"/>
+      <polygon points="445,130 475,85 470,125" fill="url(#bronzeHighlight)"/>
+      <!-- Jaw -->
+      <path d="M 435 170 L 475 175 L 450 190 Z" fill="#7B4222"/>
+      <!-- Eye glow -->
+      <circle cx="455" cy="138" r="4" fill="#0071E3"/>
+      <!-- Front Talon/Claw -->
+      <path d="M 330 270 L 350 330 L 380 340 L 370 320 L 350 270 Z" fill="url(#bronzeGrad)"/>
+      <!-- Rear Talon -->
+      <path d="M 190 265 L 180 325 L 210 335 L 205 315 L 215 265 Z" fill="url(#bronzeGrad)"/>
+    </g>
+  </svg>

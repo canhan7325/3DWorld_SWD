@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+    <defs>
+      <linearGradient id="stealthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#4B4E53"/>
+        <stop offset="50%" stop-color="#2D3035"/>
+        <stop offset="100%" stop-color="#1B1D20"/>
+      </linearGradient>
+      <linearGradient id="standFacet" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#60646B"/>
+        <stop offset="100%" stop-color="#36393E"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="300" cy="385" rx="160" ry="22" fill="rgba(20,22,25,0.14)"/>
+    <g transform="translate(160, 60)">
+      <polygon points="40,310 240,310 280,340 0,340" fill="url(#stealthGrad)"/>
+      <polygon points="0,340 280,340 280,350 0,350" fill="#141618"/>
+      <polygon points="110,90 170,90 190,320 90,320" fill="url(#stealthGrad)"/>
+      <polygon points="110,90 135,90 115,320 90,320" fill="url(#standFacet)"/>
+      <path d="M 60 110 L 220 110 L 200 140 Q 140 170 80 140 Z" fill="url(#standFacet)"/>
+      <path d="M 75 118 Q 140 145 205 118" fill="none" stroke="#0071E3" stroke-width="3" opacity="0.9"/>
+      <path d="M 70 200 L 210 200 L 195 230 Q 140 255 85 230 Z" fill="url(#standFacet)"/>
+      <path d="M 85 208 Q 140 230 195 208" fill="none" stroke="#0071E3" stroke-width="3" opacity="0.9"/>
+    </g>
+  </svg>

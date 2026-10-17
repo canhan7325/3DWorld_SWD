@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+    <defs>
+      <linearGradient id="whaleOcean" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#5B86A6"/>
+        <stop offset="50%" stop-color="#3B5B73"/>
+        <stop offset="100%" stop-color="#243847"/>
+      </linearGradient>
+      <linearGradient id="frostHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#C2D9E8"/>
+        <stop offset="100%" stop-color="#6992AF"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="300" cy="385" rx="140" ry="20" fill="rgba(30, 45, 60, 0.14)"/>
+    <g transform="translate(110, 80)">
+      <rect x="185" y="240" width="10" height="80" rx="4" fill="#88929A"/>
+      <ellipse cx="190" cy="320" rx="50" ry="12" fill="#D5DCE2"/>
+      <polygon points="60,180 150,130 170,180" fill="url(#frostHighlight)"/>
+      <polygon points="60,180 170,180 150,230" fill="url(#whaleOcean)"/>
+      <polygon points="150,130 250,140 170,180" fill="#759DB8"/>
+      <polygon points="170,180 250,140 270,190" fill="url(#frostHighlight)"/>
+      <polygon points="170,180 270,190 230,225" fill="url(#whaleOcean)"/>
+      <polygon points="150,230 170,180 230,225" fill="#2E4353"/>
+      <polygon points="175,190 140,260 190,210" fill="#4B6E87"/>
+      <polygon points="250,140 330,165 270,190" fill="#658BA4"/>
+      <polygon points="270,190 330,165 315,200" fill="url(#whaleOcean)"/>
+      <polygon points="330,165 370,130 355,170" fill="url(#frostHighlight)"/>
+      <polygon points="330,165 375,195 350,175" fill="#3B576C"/>
+    </g>
+  </svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+    <defs>
+      <linearGradient id="armorMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#46494F"/>
+        <stop offset="50%" stop-color="#28292D"/>
+        <stop offset="100%" stop-color="#141517"/>
+      </linearGradient>
+      <linearGradient id="armorHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#737984"/>
+        <stop offset="100%" stop-color="#3C3F46"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="300" cy="385" rx="130" ry="18" fill="rgba(15, 17, 20, 0.16)"/>
+    <g transform="translate(170, 50)">
+      <polygon points="50,260 210,260 230,340 30,340" fill="url(#armorMetal)"/>
+      <polygon points="70,230 190,230 205,270 55,270" fill="url(#armorHighlight)"/>
+      <polygon points="20,240 65,220 60,270 10,280" fill="url(#armorMetal)"/>
+      <polygon points="240,240 195,220 200,270 250,280" fill="url(#armorMetal)"/>
+      <polygon points="90,190 170,190 180,230 80,230" fill="#1C1E22"/>
+      <polygon points="95,140 165,140 180,190 80,190" fill="url(#armorHighlight)"/>
+      <polygon points="105,145 155,145 150,152 110,152" fill="#0071E3"/>
+      <path d="M 65 130 C 65 60 195 60 195 130 Z" fill="url(#armorMetal)"/>
+      <polygon points="130,100 80,15 115,50 130,80 145,50 180,15" fill="#D4AF37"/>
+      <circle cx="130" cy="95" r="10" fill="#D4AF37"/>
+    </g>
+  </svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%">
+    <defs>
+      <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="60%" stop-color="#ECEFF2"/>
+        <stop offset="100%" stop-color="#C5CCD3"/>
+      </linearGradient>
+      <radialGradient id="visorGlow" cx="45%" cy="40%" r="55%">
+        <stop offset="0%" stop-color="#FFF2A3"/>
+        <stop offset="35%" stop-color="#FFBE3B"/>
+        <stop offset="75%" stop-color="#D97706"/>
+        <stop offset="100%" stop-color="#78350F"/>
+      </radialGradient>
+      <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgba(255, 190, 59, 0.28)"/>
+        <stop offset="60%" stop-color="rgba(255, 190, 59, 0.05)"/>
+        <stop offset="100%" stop-color="rgba(255, 190, 59, 0)"/>
+      </radialGradient>
+    </defs>
+    <circle cx="300" cy="180" r="140" fill="url(#lampGlow)"/>
+    <ellipse cx="300" cy="380" rx="130" ry="18" fill="rgba(25, 28, 32, 0.14)"/>
+    <g transform="translate(190, 70)">
+      <ellipse cx="110" cy="305" rx="75" ry="16" fill="#8B5E3C"/>
+      <path d="M 35 305 L 35 320 C 35 330 185 330 185 320 L 185 305 Z" fill="#694326"/>
+      <path d="M 65 200 C 65 170 155 170 155 200 L 160 270 L 125 270 L 110 230 L 95 270 L 60 270 Z" fill="url(#suitGrad)"/>
+      <rect x="55" y="270" width="38" height="20" rx="6" fill="#A4B0BA"/>
+      <rect x="127" y="270" width="38" height="20" rx="6" fill="#A4B0BA"/>
+      <rect x="42" y="165" width="22" height="75" rx="8" fill="#B0BAC3"/>
+      <circle cx="110" cy="115" r="58" fill="url(#suitGrad)"/>
+      <ellipse cx="114" cy="118" rx="42" ry="32" fill="url(#visorGlow)"/>
+      <ellipse cx="106" cy="108" rx="14" ry="7" fill="rgba(255,255,255,0.75)"/>
+    </g>
+  </svg>

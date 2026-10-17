@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+    <g transform="translate(50, 50)">
+      <circle cx="100" cy="100" r="76" fill="none" stroke="#2D3035" stroke-width="16" stroke-dasharray="26 12"/>
+      <circle cx="100" cy="100" r="46" fill="#FFFFFF" stroke="#8E939C" stroke-width="6"/>
+      <circle cx="100" cy="100" r="18" fill="#0071E3"/>
+    </g>
+  </svg>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .placeholder-wrap {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .placeholder-badge {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-blue);
+      margin-bottom: 16px;
+    }
+    .placeholder-title {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--color-text-primary);
+      margin-bottom: 16px;
+    }
+    .placeholder-desc {
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 32px;
+    }
+  </style>
+</head>
+<body class="bg-base text-primary">
+  <nav class="nav-minimal" id="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/" class="brand-wordmark">3DWorld</a>
+      </div>
+      <div class="nav-right">
+        <a href="/" class="btn-text">← Return to Home</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="placeholder-wrap">
+    <div class="placeholder-badge">Coming Soon</div>
+    <h1 class="placeholder-title"><%= heading %></h1>
+    <p class="placeholder-desc"><%= subheading %></p>
+    <a href="/" class="btn-primary">Return to Experience</a>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  
+  <!-- Apple-inspired minimal Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230071E3'/><path d='M25 68 L50 24 L75 68 L50 56 Z' fill='%23FFFFFF'/></svg>">
+
+  <!-- Apple typography & SF-feel fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/hero.css">
+  <link rel="stylesheet" href="/css/components.css">
+</head>
+<body class="bg-base text-primary">
+
+  <!-- Minimal Apple-Style Sticky Header -->
+  <header class="nav-minimal" id="site-nav">
+    <div class="nav-inner">
+      <div class="nav-left">
+        <a href="/" class="brand-wordmark" aria-label="3DWorld Home">3DWorld</a>
+      </div>
+
+      <nav class="nav-center" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="/marketplace" class="nav-link">Marketplace</a></li>
+          <li><a href="/printing" class="nav-link">3D Printing</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li class="nav-link-dropdown-wrap">
+            <a href="#explore" class="nav-link" id="nav-explore-trigger" aria-haspopup="true" aria-expanded="false">
+              Explore <span class="dropdown-arrow">▼</span>
+            </a>
+            <div class="nav-dropdown" id="nav-explore-dropdown">
+              <a href="#why-us" class="dropdown-item">About 3DWorld</a>
+              <a href="#printing-service" class="dropdown-item">How It Works</a>
+              <a href="#reviews" class="dropdown-item">Reviews</a>
+              <a href="/contact" class="dropdown-item">Contact</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-icon-btn" id="nav-search-btn" aria-label="Search catalog">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <a href="/login" class="nav-link">Log In</a>
+        <a href="/marketplace" class="btn-primary btn-compact">Explore Marketplace</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Quick Search Modal -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true" aria-label="Catalog Search">
+    <div class="search-box">
+      <div class="search-input-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="search-modal-input" placeholder="Search figures, mechanical parts, vases...">
+        <button type="button" id="search-modal-close" class="nav-icon-btn" aria-label="Close search">✕</button>
+      </div>
+      <div class="search-tags">
+        <span class="search-tag-pill">Chibi King</span>
+        <span class="search-tag-pill">Mechanical Dragon</span>
+        <span class="search-tag-pill">Wave Vase</span>
+        <span class="search-tag-pill">Resin Figures</span>
+        <span class="search-tag-pill">Custom STL</span>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================
+         SECTION 1: HERO SCROLL STORY (320vh PINNED CANVAS)
+         ========================================================== -->
+    <section class="hero-scroll-section" id="hero-scroll-container">
+      <div class="hero-pin-container" id="hero-pin">
+
+        <!-- Submerged oversized background wordmark -->
+        <div class="hero-bg-wordmark" id="hero-bg-wordmark" aria-hidden="true">3DWorld</div>
+
+        <!-- Image-Sequence Canvas -->
+        <canvas class="hero-canvas" id="hero-canvas" aria-label="3D model assembly and printing sequence"></canvas>
+
+        <!-- Loading indicator pill -->
+        <div class="hero-loader-pill" id="hero-loader-pill">
+          <div class="spinner-dot"></div>
+          <span>Preparing 3D Experience</span>
+        </div>
+
+        <!-- Master Story Overlays (5 Beats) -->
+        <div class="hero-overlay-layer">
+          <div class="hero-content-wrap">
+
+            <!-- BEAT 1: HERO INTRO (0% -> 18%) -->
+            <div class="hero-beat hero-beat-intro interactive" id="hero-beat-1">
+              <span class="hero-eyebrow">3DWorld</span>
+              <h1 class="hero-headline-large">Bring Ideas Into Form.</h1>
+              <p class="hero-lead-text">
+                Distinctive 3D-printed products and custom creations, made physical by 3DWorld.
+              </p>
+              <div class="hero-actions-row">
+                <a href="/marketplace" class="btn-primary">Explore Marketplace</a>
+                <a href="/printing" class="btn-secondary">Start Printing</a>
+              </div>
+            </div>
+
+            <!-- Persistent Scroll Indicator (fades on first scroll) -->
+            <div class="hero-scroll-prompt" id="hero-scroll-prompt">
+              <span>Scroll to explore narrative</span>
+              <span class="scroll-indicator-arrow">↓</span>
+            </div>
+
+            <!-- BEAT 2: FIGURE SEPARATION (20% -> 45%) -->
+            <div class="hero-beat hero-beat-right" id="hero-beat-2">
+              <div class="beat-panel-card">
+                <div class="beat-badge">01 / Digital Craft</div>
+                <h2 class="beat-title">Designed Digitally.</h2>
+                <p class="beat-body">
+                  Every 3DWorld creation begins as a carefully prepared digital model, shaped for precise physical production.
+                </p>
+                <div class="beat-tagline">
+                  Clean design. Thoughtful structure. Real-world output.
+                </div>
+              </div>
+            </div>
+
+            <!-- BEAT 3: EXPLODED HOLD (45% -> 55%) -->
+            <div class="hero-beat hero-beat-right" id="hero-beat-3">
+              <div class="beat-panel-card">
+                <div class="beat-badge">02 / Modularity</div>
+                <h2 class="beat-title">Precision in Every Part.</h2>
+                <p class="beat-body">
+                  Seven components. One finished creation. Interlocking tolerances calibrated down to fifty microns.
+                </p>
+                <div class="parts-tag-grid">
+                  <span class="part-tag">01 Crown</span>
+                  <span class="part-tag">02 Head Peg</span>
+                  <span class="part-tag">03 Torso Cavity</span>
+                  <span class="part-tag">04 Left Arm</span>
+                  <span class="part-tag">05 Right Arm</span>
+                  <span class="part-tag">06 Left Foot</span>
+                  <span class="part-tag">07 Right Foot</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- BEAT 4: PRINTER REVEAL (55% -> 80%) -->
+            <div class="hero-beat hero-beat-left" id="hero-beat-4">
+              <div class="beat-panel-card">
+                <div class="beat-badge">03 / Fabrication</div>
+                <h2 class="beat-title">Made Physical.</h2>
+                <p class="beat-body">
+                  3DWorld transforms digital ideas into carefully produced physical objects through premium 3D printing.
+                </p>
+                <div class="beat-tagline">
+                  From concept to print, every piece is made to be seen, used, and collected.
+                </div>
+              </div>
+            </div>
+
+            <!-- BEAT 5: FINAL PRINTER STATE (80% -> 100%) -->
+            <div class="hero-beat hero-beat-left interactive" id="hero-beat-5">
+              <div class="beat-panel-card">
+                <div class="beat-badge">04 / Ready to Order</div>
+                <h2 class="beat-title">Print Your Vision.</h2>
+                <p class="beat-body">
+                  Browse curated products or bring your own design to life with 3DWorld.
+                </p>
+                <div class="hero-actions-row" style="justify-content: flex-start; margin-bottom: 0;">
+                  <a href="/marketplace" class="btn-primary">Explore Marketplace</a>
+                  <a href="/printing" class="btn-secondary">Start Printing</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 2: FEATURED PRODUCTS
+         ========================================================== -->
+    <section class="section-wrapper" id="products">
+      <div class="section-header">
+        <div class="section-eyebrow">Curated Collection</div>
+        <h2 class="section-title">Featured Products</h2>
+        <p class="section-subtitle">
+          Curated 3D-printed objects designed to stand out in your home, desk, and studio.
+        </p>
+        <div class="section-cta-header">
+          <a href="/marketplace" class="btn-text">View All Products →</a>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        <% products.forEach(product => { %>
+          <a href="/marketplace?item=<%= product.id %>" class="product-card">
+            <div class="product-card-visual">
+              <% if (product.badge) { %>
+                <span class="product-badge"><%= product.badge %></span>
+              <% } %>
+              <img src="<%= product.image %>" alt="<%= product.name %>" loading="lazy">
+            </div>
+            <div class="product-card-body">
+              <div class="product-header-line">
+                <h3 class="product-name"><%= product.name %></h3>
+                <span class="product-price"><%= product.price %></span>
+              </div>
+              <p class="product-desc"><%= product.description %></p>
+              <div class="product-meta-row">
+                <div class="product-material">
+                  <span class="material-indicator"></span>
+                  <span><%= product.material %></span>
+                </div>
+                <div class="product-rating">
+                  <span class="star-icon">★</span>
+                  <span><%= product.rating %> (<%= product.reviewsCount %>)</span>
+                </div>
+              </div>
+            </div>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 3: EXPLORE CATEGORIES
+         ========================================================== -->
+    <section class="section-wrapper" id="categories">
+      <div class="section-header">
+        <div class="section-eyebrow">Discovery</div>
+        <h2 class="section-title">Explore Categories</h2>
+        <p class="section-subtitle">
+          Spanning precision mechanical assemblies, sculptural decor, and collector figures.
+        </p>
+      </div>
+
+      <div class="categories-editorial-grid">
+        <% categories.forEach(cat => { %>
+          <a href="/marketplace?category=<%= encodeURIComponent(cat.name) %>" class="category-tile <%= cat.size %>">
+            <div class="category-tile-header">
+              <div class="category-tag"><%= cat.tag %></div>
+              <h3 class="category-name"><%= cat.name %></h3>
+              <div class="category-count"><%= cat.count %></div>
+            </div>
+            <div class="category-tile-visual">
+              <img src="<%= cat.image %>" alt="<%= cat.name %> illustration" loading="lazy">
+            </div>
+            <span class="category-link-arrow">Browse category →</span>
+          </a>
+        <% }) %>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 4: 3D PRINTING SERVICE
+         ========================================================== -->
+    <section class="section-wrapper" id="printing-service">
+      <div class="printing-service-panel">
+        <div class="section-header" style="text-align: left; margin-bottom: 0;">
+          <div class="section-eyebrow">On-Demand Manufacturing</div>
+          <h2 class="section-title">3D Printing Service</h2>
+          <h3 style="font-size: 24px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 12px; letter-spacing: -0.02em;">
+            Bring Your Design to Life.
+          </h3>
+          <p class="section-subtitle" style="text-align: left; margin: 0; max-width: 680px;">
+            Upload your own 3D model and let 3DWorld turn it into a physical product with reliable quality, tight tolerances, and professional finishing.
+          </p>
+        </div>
+
+        <div class="printing-steps-grid">
+          <div class="print-step-item is-active">
+            <span class="step-number">01</span>
+            <h4 class="step-title">Upload File</h4>
+            <p class="step-desc">Drop your STL, OBJ, or STEP file. Our automatic geometry checker inspects wall thickness and support integrity.</p>
+          </div>
+          <div class="print-step-item">
+            <span class="step-number">02</span>
+            <h4 class="step-title">Get a Quote</h4>
+            <p class="step-desc">Select material, layer resolution, and infill density for instant, transparent pricing with zero surprises.</p>
+          </div>
+          <div class="print-step-item">
+            <span class="step-number">03</span>
+            <h4 class="step-title">We Print</h4>
+            <p class="step-desc">Fabricated on calibrated industrial-grade printers with active thermal chambers and automated post-processing.</p>
+          </div>
+          <div class="print-step-item">
+            <span class="step-number">04</span>
+            <h4 class="step-title">Delivered to You</h4>
+            <p class="step-desc">Inspected for dimensional accuracy, securely packed in eco-cushioning, and shipped directly to your door.</p>
+          </div>
+        </div>
+
+        <div class="printing-cta-bar">
+          <div class="printing-specs-summary">
+            <div class="spec-item">
+              <span class="spec-label">Resolution</span>
+              <span class="spec-val">Down to 50μm</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Materials</span>
+              <span class="spec-val">PLA, PETG, Resin, Nylon</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Turnaround</span>
+              <span class="spec-val">From 48 Hours</span>
+            </div>
+          </div>
+          <a href="/printing" class="btn-primary">Start Printing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 5: REVIEWS / TRUST
+         ========================================================== -->
+    <section class="section-wrapper" id="why-us">
+      <div class="section-header">
+        <div class="section-eyebrow">Trust & Craft</div>
+        <h2 class="section-title">Why 3DWorld</h2>
+        <p class="section-subtitle">
+          Engineered standards and quiet craftsmanship behind every object we produce.
+        </p>
+      </div>
+
+      <div class="trust-pillars-row">
+        <div class="trust-pillar-card">
+          <div class="pillar-icon-box">✓</div>
+          <h3 class="pillar-title">Premium Print Quality</h3>
+          <p class="pillar-desc">Micro-calibrated extrusion ensures layer lines fade into a tactile, matte, hand-finished feel.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="pillar-icon-box">★</div>
+          <h3 class="pillar-title">Curated Products</h3>
+          <p class="pillar-desc">Every catalog item is independently stress-tested, assembled, and verified before offering.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="pillar-icon-box">◈</div>
+          <h3 class="pillar-title">Reliable Materials</h3>
+          <p class="pillar-desc">Sustainably formulated biopolymers and precision engineering resins designed to last years.</p>
+        </div>
+        <div class="trust-pillar-card">
+          <div class="pillar-icon-box">🛡</div>
+          <h3 class="pillar-title">Secure Shopping</h3>
+          <p class="pillar-desc">Custom molded protective packaging, tracked shipping, and a 100% reprint satisfaction guarantee.</p>
+        </div>
+      </div>
+
+      <!-- Minimal Editorial Reviews -->
+      <div class="reviews-grid" id="reviews">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “The print resolution on the Mechanical Dragon exceeded my expectations. Surface layer lines are virtually invisible, and the articulated snap joints move like silk.”
+            </blockquote>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Marcus V.</span>
+            <span class="author-role">Industrial Designer, Berlin</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “Submitted an STL file on Tuesday, received the custom mechanical prototype on Friday. Flawless 50-micron tolerance that saved weeks of prototyping time.”
+            </blockquote>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Elena S.</span>
+            <span class="author-role">Robotics Engineer, Zurich</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “The matte off-white finish on the Wave Vase feels like handmade ceramic stoneware. It has become the centerpiece of my studio reception desk.”
+            </blockquote>
+          </div>
+          <div class="review-author">
+            <span class="author-name">Julian K.</span>
+            <span class="author-role">Interior Architect, London</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         SECTION 6: FINAL CTA
+         ========================================================== -->
+    <section class="section-wrapper final-cta-section">
+      <div class="final-cta-card">
+        <div class="section-eyebrow">Get Started Today</div>
+        <h2 class="final-cta-headline">Find Your Next 3D Creation.</h2>
+        <p class="final-cta-desc">
+          Discover distinctive physical objects or print your own design with 3DWorld.
+        </p>
+        <div class="final-cta-actions">
+          <a href="/marketplace" class="btn-primary">Explore Marketplace</a>
+          <a href="/printing" class="btn-secondary">Start Printing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Compact Minimal Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <span class="footer-wordmark">3DWorld</span>
+        <ul class="footer-nav">
+          <li><a href="/marketplace">Marketplace</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="/printing">3D Printing</a></li>
+          <li><a href="#why-us">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/support">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 3DWorld. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="/terms">Terms</a>
+          <a href="/privacy">Privacy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP & ScrollTrigger (Local vendor fallback) -->
+  <script src="/vendor/gsap/gsap.min.js"></script>
+  <script src="/vendor/gsap/ScrollTrigger.min.js"></script>
+
+  <!-- Sequence Loader, Hero Controller, and UI App -->
+  <script src="/js/sequence-loader.js"></script>
+  <script src="/js/hero-controller.js"></script>
+  <script src="/js/app.js"></script>
+
+</body>
+</html>
